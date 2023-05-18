@@ -6,7 +6,10 @@
         xmlns:local="clr-namespace:Prog_124_S23_L11_ICompareable"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <ListBox x:Name="lbList" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="161,40,137,40"/>
-    </Grid>
+    <Canvas>
+        <ListBox x:Name="lbList" Height="328" Width="361" d:ItemsSource="{d:SampleData ItemCount=5}" Canvas.Left="340" Canvas.Top="40" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Button x:Name="btnSortGrade" Content="Sort By Grade" Canvas.Left="84" Canvas.Top="103" Height="21" Width="147" Click="btnSortGrade_Click"/>
+        <Button x:Name="btnSortFirst" Content="Sort By First Name" Canvas.Left="84" Canvas.Top="143" HorizontalAlignment="Left" VerticalAlignment="Center" Width="147" Click="btnSortFirst_Click"/>
+        <Button x:Name="btnSortLast" Content="Sort By Last Name" Canvas.Left="84" Canvas.Top="188" HorizontalAlignment="Left" VerticalAlignment="Center" Width="147" Click="btnSortLast_Click"/>
+    </Canvas>
 </Window>

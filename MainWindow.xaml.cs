@@ -21,11 +21,60 @@ namespace Prog_124_S23_L11_ICompareable
     public partial class MainWindow : Window
     {
         List<DemoCompare> _demoList = new List<DemoCompare>();
-        
+        List<Student> _students = new List<Student>();
 
         public MainWindow()
         {
             InitializeComponent();
+
+            // Adding 4 students to our students list
+            _students.Add(new Student("Josh", "Emery", 110));
+            _students.Add(new Student("Will", "Cram", 71));
+            _students.Add(new Student("Ana", "Mendes", 120));
+            _students.Add(new Student("David", "Selberg", 114));
+
+            // Displaying the students to our list box
+            lbList.ItemsSource = _students;
+
+
+        }
+
+        public void InterfaceExample()
+        {
+            //lbList.Items.Add("obj is an Object? - " + obj is object); // Will show true or false if the object IS an object
+            //lbList.Items.Add("obj is an Door? - " + obj is Door); // Will show true or false if the object IS an object
+            //lbList.Items.Add("obj is an DoubleDoor? - " + obj is DoorDouble); // Will show true or false if the object IS an object
+
+            List<IOpen> _openableOjbects = new List<IOpen>();
+            _openableOjbects.Add(new DoorSingle());
+            _openableOjbects.Add(new DoorDouble());
+            _openableOjbects.Add(new MyWindow());
+            _openableOjbects.Add(new Jar());
+
+            foreach (IOpen openable in _openableOjbects)
+            {
+                lbList.Items.Add(openable);
+            }
+
+            ////MessageBox.Show(obj.GetType().ToString());
+            //Object obj = new MyWindow();
+            //if (obj is IOpen)
+            //{
+            //    IOpen door = (IOpen)obj;
+            //    MessageBox.Show(door.ToString());
+
+            //}
+
+            // What can we open
+            // Doors
+            // Windows
+            // Containers
+            // Applications
+            // Eyes
+        }
+
+        public void TestCode()
+        {
             _demoList.Add(new DemoCompare("Will", 10, new DateTime(1974, 8, 4)));
             _demoList.Add(new DemoCompare("Ronda", 15, new DateTime(1945, 8, 4)));
             _demoList.Add(new DemoCompare("Meili", 1, new DateTime(1999, 8, 4)));
@@ -41,10 +90,25 @@ namespace Prog_124_S23_L11_ICompareable
             _demoList.Add(new DemoCompare("Sarah", 65, new DateTime(1174, 8, 4)));
             _demoList.Add(new DemoCompare("Ednalynn", 65, new DateTime(1174, 8, 4)));
             _demoList.Add(new DemoCompare("Cirella", 65, new DateTime(1174, 8, 4)));
+        }
 
+        private void btnSortGrade_Click(object sender, RoutedEventArgs e)
+        {
+            // Call the sort method on your students list
+            _students.Sort();
+
+            // Call Refresh on the listBox Items to update the list
+            lbList.Items.Refresh();
+        }
+
+        private void btnSortFirst_Click(object sender, RoutedEventArgs e)
+        {
 
         }
 
+        private void btnSortLast_Click(object sender, RoutedEventArgs e)
+        {
 
+        }
     }
 }
