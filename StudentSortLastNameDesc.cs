@@ -6,14 +6,11 @@ using System.Threading.Tasks;
 
 namespace Prog_124_S23_L11_ICompareable
 {
-    internal class StudentCompareFirstName : IComparer<Student>
+    internal class StudentSortLastNameDesc : IComparer<Student>
     {
-
-
-
         public int Compare(Student? x, Student? y)
         {
-            return x.FirstName.CompareTo(y.FirstName);
+            return -(x.LastName.CompareTo(y.LastName));
         }
     }
 }

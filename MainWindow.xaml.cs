@@ -103,12 +103,21 @@ namespace Prog_124_S23_L11_ICompareable
 
         private void btnSortFirst_Click(object sender, RoutedEventArgs e)
         {
+            // Build instance of sort object
+            StudentCompareFirstName sort = new StudentCompareFirstName();
+
+            // Call list sort
+            // PASS IN INSTANCE OF SORT OBJECT
+            _students.Sort(sort);
+
+            lbList.Items.Refresh();
 
         }
 
         private void btnSortLast_Click(object sender, RoutedEventArgs e)
         {
-
+            _students.Sort(new StudentSortLastNameDesc());
+            lbList.Items.Refresh();
         }
     }
 }
